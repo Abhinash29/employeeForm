@@ -1,0 +1,38 @@
+
+
+.demo
+{
+  border: 1px solid black;
+}
+.done
+{
+color: blue;
+}
+.pending
+{
+color: red;
+}
+
+
+.software
+{
+  color: blue;
+}
+.manager
+{
+  color: darkred;
+}
+.developer
+{
+color:blue;
+}
+
+
+
+table, th, td {
+  border: 1px solid black;
+}
+th, td {
+  padding: 10px;
+  text-align: center;
+}

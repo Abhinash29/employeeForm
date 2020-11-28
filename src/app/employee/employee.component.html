@@ -1,0 +1,30 @@
+<div class="container">
+  <form (ngSubmit)="onEmpAdd(f)" #f="ngForm">
+    <div class="form-group">
+      <label>Emp Email</label>
+      <input name="emp_email" ngModel required email #emp_email="ngModel" type="text" placeholder="Enter Email"
+        class="form-control">
+      <label *ngIf="emp_email.hasError('required') && !emp_email.pristine " class="alert alert-danger">emp email is
+        required.</label>
+      <label *ngIf="emp_email.hasError('email') && !emp_email.pristine " class="alert alert-danger">invalid email
+        address</label>
+    </div>
+    <div class="form-group">
+      <label>Emp Name</label>
+      <input name="emp_name" pattern="[a-zA-Z]*" ngModel #emp_name="ngModel" type="text" placeholder="Enter Name"
+        class="form-control">
+      <label *ngIf="emp_name.hasError('pattern') && !emp_name.pristine " class="alert alert-danger">invalid
+        value</label>
+    </div>
+    <div class="form-group">
+      <label>Emp Salary</label>
+      <input name="emp_salary" ngModel type="text" placeholder="Enter Salary" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Emp City</label>
+      <input name="emp_city" ngModel type="text" placeholder="Enter City" class="form-control">
+    </div>
+    <button type="submit" class="form-control btn btn-primary">Add Employee</button>
+  </form>
+
+</div>

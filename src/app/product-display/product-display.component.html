@@ -1,0 +1,30 @@
+<div class ="container">
+  <h2>Product Display</h2>
+  <table class="table">
+    <thead>
+      <th>pro_id</th>
+      <th>pro_name</th>
+      <th>pro_price</th>
+      <th>pro_desc</th>
+      <th>pro_qty</th>
+      <th>pro_mfg</th>
+      <th>pro_img</th>
+      <th>Action</th>
+
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of Product_arr">
+         <td>{{item.pro_id}}</td>
+         <td>{{item.pro_name}}</td>
+         <td>{{item.pro_price}}</td>
+         <td>{{item.pro_desc}}</td>
+         <td>{{item.pro_qty}}</td>
+         <td>{{item.pro_mfg}}</td>
+         <td>{{item.pro_img}}</td>
+         <td>
+           <button (click)="onProductDelete(item)"> Delete </button>
+          </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

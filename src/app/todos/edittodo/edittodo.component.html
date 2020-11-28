@@ -1,0 +1,19 @@
+<div class="container">
+    <form (ngSubmit) ="todoEdit()"[formGroup]="todo_edit">
+      <div class ="form-group">
+        <input class="form-control" placeholder="enter id" formControlName="task_id">
+      </div>
+      <div class ="form-group">
+        <input class="form-control" placeholder="enter title" formControlName="title">
+      </div>
+      <div class ="form-group">
+        <select class="form-control" formControlName = "status">
+          <option *ngFor="let item of status_arr" [value]="item">{{item}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <button type="submit" class ="btn btn-primary">Edit Todo</button>
+      </div>
+    </form>
+</div>
+

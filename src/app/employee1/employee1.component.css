@@ -1,0 +1,11 @@
+.lblError {
+  color: red;
+}
+#required
+{
+  width:100%;
+  text-align: right;
+  color: orangered;
+}
+
+

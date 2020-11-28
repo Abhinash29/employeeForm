@@ -1,0 +1,195 @@
+
+<div class="container mt-20" max-width="90%">
+  <!--<div class="row">
+     <div class="btn-toolbar">
+      <button class="btn btn-primary" (click)="onAddNewTask()">Todo Task</button>
+    </div>
+    </div>
+    <div class="btn-toolbar">
+      <button class="btn btn-info" (click)="onAddNewEmployee()">Employee List</button>
+    </div>
+    <div class="btn-toolbar">
+      <button class="btn btn-primary" (click)="onShowProduct()">Product List</button>
+    </div> -->
+
+    <h1>Todo Component</h1>
+    <table class="table table-light">
+      <thead>
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">Title</th>
+          <th scope="col">Status</th>
+          <th scope="col">Edit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of arrTodos" class="tr">
+          <td scope="col">{{ item.task_id }}</td>
+          <td scope="col">{{ item.title }}</td>
+          <td scope="col">
+            <span [ngClass]="{
+              done: item.status == 'done',
+              pending: item.status == 'pending'
+            }">{{ item.status }}
+            </span>
+          </td>
+          <td scope="col">
+            <button class="btn btn-danger px-2" (click)="onDeleteTask(item)">Delete</button>
+              <button class="btn btn-primary px-2" (click)="onEditTask(item)"> edit</button>
+
+            <!-- <button class="btn btn-primary" (click)="onUpdateTask(item)">
+              Update
+            </button> -->
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+
+       <!-- <tr class="tr">
+          <td scope="col">
+            <input class="form-control" type="number" [(ngModel)]="task_id" placeholder="Enter Id" required />
+          </td>
+          <td scope="col">
+            <input class="form-control" type="text" [(ngModel)]="title" placeholder="Title" required />
+          </td>
+          <td scope=" col">
+            <input class="form-control" type="text" [(ngModel)]="status" placeholder="Status" required />
+          </td> -->
+          <td scope="col">
+            <button class="btn btn-primary" (click)="onCancelTask()">
+              Cancel
+            </button>
+            <button class="btn btn-success" (click)="onAddTask()">
+              Add Task
+            </button>
+          </td>
+      </tfoot>
+    </table>
+
+
+
+
+    <h3 class="h1">Employee Table</h3>
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <!-- <th scope="col">#</th> -->
+          <th scope="col">Email</th>
+          <th scope="col">Name</th>
+
+          <th scope="col">Password</th>
+          <th scope="col">Mobile</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of arrEmployees">
+          <!-- <th scope="row">{{ item.email }}</th> -->
+          <td>{{ item.user_email }}</td>
+          <td>{{ item.user_name }}</td>
+
+          <td>{{ item.user_password }}</td>
+          <td>{{ item.user_mobile_no }}</td>
+          <td>
+            <button class="btn btn-danger" (click)="onDeleteEmpoyee(item)">Delete</button>
+            <button class="btn btn-primary px-2" (click)="onEditEmployee(item)"> edit</button>
+
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+       <!-- <tr class="tr">
+          <td scope="col">
+            <input class="form-control" type="text" [(ngModel)]="user_name" placeholder="Name" required />
+          </td>
+          <td scope="col">
+            <input class="form-control" type="email" [(ngModel)]="user_email" placeholder="Enter Email" required />
+          </td>
+          <td scope=" col">
+            <input class="form-control" type="password" [(ngModel)]="user_password" placeholder="Password" required />
+          </td>
+          <td scope=" col">
+            <input class="form-control" type="text" [(ngModel)]="user_mobile_no" placeholder="Mobile" required />
+          </td> -->
+          <td scope="col">
+            <button class="btn btn-primary" (click)="onCancelEmployee()">
+              Cancel
+            </button>
+            <button class="btn btn-success" (click)="onAddEmployee()">
+              Add User
+            </button>
+          </td>
+
+      </tfoot>
+    </table>
+
+    <h3 class="h1">Product Table</h3>
+
+    <table class="table table-light">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Product Name</th>
+          <th scope="col">product price</th>
+          <th scope="col">Product quantity</th>
+          <th scope="col">Product desc</th>
+          <th scope="col">Product mfg</th>
+          <th scope="col">Product img</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of arrProduct">
+          <td>{{ item.pro_id }}</td>
+          <td>{{ item.pro_name }}</td>
+          <td>{{ item.pro_price }}</td>
+          <td>{{ item.pro_qty }}</td>
+          <td>{{ item.pro_desc }}</td>
+          <td>{{ item.pro_mfg }}</td>
+          <td>{{ item.pro_img }}</td>
+          <td>
+            <button class="btn btn-danger" (click)="onDeleteProduct(item)">Delete</button>
+            <button class="btn btn-primary" (click)="onEditProduct(item)">Edit</button>
+
+
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr class="tr">
+         <!-- <td scope="col">
+            <input class="form-control" type="text" [(ngModel)]="pro_id" placeholder="ID" required />
+          </td>
+          <!-- <td scope="col">
+            <input class="form-control" type="text" [(ngModel)]="pro_name" placeholder="Product Name" required />
+          </td>
+          <td scope=" col">
+            <input class="form-control" type="number" [(ngModel)]="pro_price" placeholder="Description" required />
+          </td>
+          <td scope=" col">
+            <input class="form-control" type="number" [(ngModel)]="pro_qty" placeholder="quantity" required />
+          </td>
+          <td scope=" col">
+            <input class="form-control" type="string" [(ngModel)]="pro_desc" placeholder="desc" required />
+          </td>
+          <td scope=" col">
+            <input class="form-control" type="text" [(ngModel)]="pro_mfg" placeholder="mfg" required />
+          </td>
+          <td scope=" col">
+            <input class="form-control" type="text" [(ngModel)]="pro_img" placeholder="img" required />
+          </td>
+ -->
+
+          <td scope="col">
+            <button class="btn btn-primary" (click)="onCancelProduct()">
+              Cancel
+            </button>
+            <button class="btn btn-success" (click)="onAddProduct()">
+              Add Product
+            </button>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+
+
+</div>

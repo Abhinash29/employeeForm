@@ -1,0 +1,20 @@
+<div class="row">
+  <div *ngFor="let item of cart ">
+   <div class="thumbnail">
+     <div>&nbsp;</div>
+       <img src="./assets/images/s5.jpg" alt="bike" width="25%" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <div class="caption" align="center" >
+         <h3>&nbsp;&nbsp;{{item.name}}</h3>
+         <p>Color:&nbsp;&nbsp;{{item.color}}</p>
+         <p>Warranty:&nbsp;&nbsp; {{item.warranty}}</p>
+         <p>Brand:&nbsp;&nbsp;{{item.brand}}</p>
+         <p>Price: &nbsp;&nbsp;{{item.price | currency:'INR' : 'symbol' :'3.1' }}</p>
+         <p>MRP:&nbsp;&nbsp; {{item.mrp | currency:'INR' : 'symbol' :'2.1'}}</p>
+         <p>Discount:&nbsp;&nbsp;{{item.discount}}</p>
+         <p>Quantity:&nbsp;&nbsp;{{item.quantity}}</p>
+         <p>Status:&nbsp;&nbsp;{{item.status}}</p>
+         <p> <button class="btn btn-success">buy</button>&nbsp;</p>
+       </div>
+     </div>
+ </div>
+ </div>

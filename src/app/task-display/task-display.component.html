@@ -1,0 +1,22 @@
+<div class ="container">
+  <h2>Task Display</h2>
+  <table class="table">
+    <thead>
+      <th>ID</th>
+      <th>TITLE</th>
+      <th>STATUS</th>
+      <th>Action</th>
+
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of Task_arr">
+         <td>{{item.task_id}}</td>
+         <td>{{item.title}}</td>
+         <td>{{item.status}}</td>
+         <td>
+           <button (click)="onTaskDelete(item)"> Delete </button>
+          </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
