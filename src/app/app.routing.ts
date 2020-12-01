@@ -4,7 +4,6 @@ import{EditemployeeComponent} from './todos/editemployee/editemployee.component'
 import{EditproductComponent} from './todos/editproduct/editproduct.component';
 import{ForDemosComponent} from './for-demos/for-demos.component';
 import { ParentComponent } from './parent/parent.component';
-import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import {EmployeeComponent}  from './employee/employee.component';
 //import { LoginComponent } from './login/Login.component';
 import { SignupComponent } from   './signup/signup.component';
@@ -13,6 +12,8 @@ import {TaskDisplayComponent } from './task-display/task-display.component';
 import {AddtaskComponent } from './task-display/addtask/addtask.component';
 import {ProductDisplayComponent } from './product-display/product-display.component';
 import {AddproductComponent } from './product-display/addproduct/addproduct.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+
 
 import{HeaderComponent} from "./header/header.component";
 const arr: Routes=[

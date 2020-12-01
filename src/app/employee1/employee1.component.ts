@@ -11,7 +11,7 @@ import {
   ReactiveFormsModule
 } from '@angular/forms';
 import { Employee1dataService } from "./employee1data.service";
-import { Employee1 } from './employee1';
+import { Employee1, Employee2, Employee4, Employee5, Employee6 } from './employee1';
 @Component({
   selector: 'app-employee1',
   templateUrl: './employee1.component.html',
@@ -31,10 +31,10 @@ export class Employee1Component implements OnInit {
   flag6:boolean=false;
   flag7:boolean=false;
   flag8:boolean=false;
-
+  employeeFormm:FormGroup;
   arremployee: Employee1[]=[];
   qualificationform:FormGroup;
-  arrquali: any[]=[];
+  arrquali: Employee5 []=[];
   invalidNamesArr: any[] = [];
   qualification;
   institute;
@@ -44,8 +44,14 @@ export class Employee1Component implements OnInit {
   qualification_area;
   signupForm: FormGroup;
   res;
+  counter;
 
-  arremployee1: any[]=[];
+  arremployee1:Employee4[]=[];
+  arremployee2:Employee2[]=[];
+
+  arremp: Employee4 []=[];
+  counter1;
+  res1;
   fromDate;
   toDate;
   company;
@@ -56,7 +62,8 @@ export class Employee1Component implements OnInit {
   signupForm1: FormGroup;
 
   skillForm:FormGroup;
-  arrskill: any[]=[];
+  arrset: any[]=[];
+  arrskill: Employee6[]=[];
   invalidNamesArr1: any[] = [];
   skillCategory;
   skill;
@@ -65,16 +72,20 @@ export class Employee1Component implements OnInit {
   Experience;
   Remarks;
   flag:boolean = true;
-  res1;
-
+  res2;
+  counter2;
 
   constructor(private ang:FormBuilder, private  data:Employee1dataService) {}
-  Caddress_permanent:string;
-  CCity:string;
-  CCountry:string;
-  CState:string;
-  CDistrict:string;
-  CPin:string;
+  address_present:string;
+  city1:string;
+  country1:string;
+  state1:string;
+  district1:string;
+  pin1:string;
+  phone3:string;
+  phone4:string;
+  fax2:string;
+  personal_email_id:string;
   age:number;
   ngOnInit(): void {
     this.signupForm =  this.ang.group
@@ -145,6 +156,7 @@ export class Employee1Component implements OnInit {
       }
 
       this.employeeForm1=new FormGroup({
+        address:new FormControl(),
       address_permanent:new FormControl(null,[Validators.required,Validators.minLength(5),]),
       city :new FormControl(null,[Validators.required,Validators.minLength(4),]),
       country :new FormControl(),
@@ -156,7 +168,6 @@ export class Employee1Component implements OnInit {
       fax1:new FormControl(),
       personnal_email_id:new FormControl(),
 
-      address:new FormControl(),
       address_present:new FormControl(null,[Validators.required,Validators.minLength(5),]),
       city1 :new FormControl(null,[Validators.required,Validators.minLength(4),]),
       country1:new FormControl(),
@@ -178,7 +189,7 @@ export class Employee1Component implements OnInit {
 
 
       //this.employeeForm.get('basicInfo').get('dob').valueChanges.subscribe((x)=>this.updateEmpAge(x));
-     this.employeeForm1.get('address').valueChanges.subscribe((x) => this.setAddress(x));
+     this.employeeForm1.get('address').valueChanges.subscribe((x) => this.updateaddress(x));
         this.employeeForm.get('date_of_birth').valueChanges.subscribe((x) => this.setAge(x));
         //this.employeeForm.get('dob').valueChanges.subscribe((x)=>this.updateEmpAge(x));
     }
@@ -194,24 +205,48 @@ onEmployee()
  }
 
 
-   setAddress(val:boolean){
-      if(val){
-        this.Caddress_permanent=this.employeeForm1.get('address_permanent').value;
-        this.CCity=this.employeeForm1.get('city').value;
-        this.CCountry=this.employeeForm1.get('country').value;
-        this.CState=this.employeeForm1.get('state').value;
-        this.CDistrict=this.employeeForm1.get('district').value;
-        this.CPin=this.employeeForm1.get('pin').value;
-      }
-      else{
-        this.Caddress_permanent=null;
-        this.CCity=null;
-        this.CCountry=null;
-        this.CState=null;
-        this.CDistrict=null;
-        this.CPin=null;
-      }
-    }
+ onEmployee1()
+ {
+   this.data.addpermanent_add_tbl(this.employeeForm1.value).subscribe((x)=>
+    {
+      this.arremployee2.push(this.employeeForm1.value);
+      alert("Data Added successfully!....");
+      console.log('Permanent Address', JSON.stringify(this.employeeForm1.value));
+    });
+ }
+
+
+
+   updateaddress(val:boolean){
+ if(val && this.employeeForm1.get('address').value == true){
+   this.employeeForm1.patchValue({
+    address_present:[this.employeeForm1.get('address_permanent').value],
+    city1:[this.employeeForm1.get('city').value],
+    country1:[this.employeeForm1.get('country').value],
+    state1:[this.employeeForm1.get('state').value],
+    district1:[this.employeeForm1.get('district').value],
+    pin1:[this.employeeForm1.get('pin').value],
+    phone3:[this.employeeForm1.get('phone1').value],
+    phone4:[this.employeeForm1.get('phone2').value],
+    fax2:[this.employeeForm1.get('fax1').value],
+    personal_email_id:[this.employeeForm1.get('personnal_email_id').value],
+        });
+ }
+ else{
+  this.address_present = null;
+  this.city1 = null;
+  this.country1 = null;
+  this.state1 = null;
+  this.district1 = null;
+  this.pin1 = null;
+  this.phone3 = null;
+  this.phone4 = null;
+  this.fax2 = null;
+  this.personal_email_id = null;
+  }
+
+}
+
     onEmployeee(){
       this.flag1=false;
       this.flag2=true;
@@ -231,7 +266,7 @@ onEmployee()
       this.flag6=false;
       this.flag7=false;
     }
-    onEmployee1(){
+    onEmployee11(){
       this.flag1=false;
       this.flag2=false;
       this.flag3=true;
@@ -249,7 +284,7 @@ onEmployee()
     this.flag6=false;
     this.flag7=false;
   }
-  onEmployee2(){
+  onEmployee22(){
     this.flag1=false;
     this.flag2=false;
     this.flag3=false;
@@ -287,14 +322,16 @@ onEmployee()
     this.flag7=false;
   }
 
-  onEmployee4(){
+  onEmployee44(){
     this.flag1=false;
     this.flag2=false;
-    this.flag3=false;
+    this.flag3=true;
     this.flag4=false;
     this.flag5=false;
-    this.flag6=true;
+    this.flag6=false;
     this.flag7=false;
+
+
   }
   onEmpPre4(){
     this.flag1=false;
@@ -306,7 +343,7 @@ onEmployee()
     this.flag7=false;
   }
 
-  onEmployee5(){
+  onEmployee55(){
     this.flag1=false;
     this.flag2=false;
     this.flag3=false;
@@ -325,7 +362,7 @@ onEmployee()
     this.flag6=false;
     this.flag7=false;
   }
-  onEmployee6(){
+  onEmployee66(){
     this.flag1=false;
     this.flag2=false;
     this.flag3=false;
@@ -376,9 +413,6 @@ onEmployee()
         qualification_area: new FormControl (null,[Validators.required]),
 
       });
-     // this.signupForm.get('qualification').valueChanges.subscribe((x)=>this.nameInvalid(x));
-    // this.signupForm.controls['qualification'].valueChanges.subscribe(value => {
-   // });
 
   }
 //for show and hide button
@@ -387,11 +421,22 @@ onEmployee()
   }
 
 //start here
-onAddDetail2(): void
+onEmployee4(): void
       {
-        this.arrquali.push(this.signupForm.value);
-        console.log('Qualification Details',this.arrquali);
-        // console.log('Qualification Details',this.signupForm.get('qualification_details').controls['qualification'].value);
+    this.counter=0;
+   this.res="";
+    this.arrquali.push(this.signupForm.get('qualification_details').value);
+
+      for(var i=0;i<=(this.signupForm.get('qualification_details').value).length-1;i++)
+      {
+        {
+          this.data.addqualification_tbl(this.signupForm.get('qualification_details').get([this.counter]).value).subscribe((x)=>
+          {
+            alert("Data Added Successfully");
+          }
+          );}
+        this.counter++;
+      }
       }
 
   get qualiArray()
@@ -508,12 +553,25 @@ Duplicate1(from_date): boolean {
   }
 }
 //start here
-onAddDetail1(): void {
+onEmployee5(): void
+  {
+    this.counter1=0
+    this.res1="";
+    for(var i=0;i<=(this.signupForm1.get('employment_details').value).length-1;i++)
+      {
+        {
+          this.data.addskill_tbl(this.signupForm1.get('employment_details').get([this.counter1]).value).subscribe((x)=>
+          {
+           // console.log("success");
+            this.arremp.push(this.signupForm1.get('employment_details').value);
+          }
+          );}
+       // this.res1=this.employmentForm.get('employment_details').get([this.counter1]).value;
+        this.counter1++;
+        alert("Data Added Successfully!...");
+        //console.log('Employment Details',this.counter1,this.res1);
+      }
 
-  this.arremployee.push(this.signupForm1.get('employment_details').value);
-
-  for (let entry of this.arremployee) {
-    console.log('Employment Details', entry);}
   }
 
 get EmployeeArray()
@@ -544,6 +602,16 @@ this.EmployeeArray.reset(index);
        }
        alert("Data is Added Successfully!...");
      }
+
+     onRegister(control: AbstractControl)
+     {
+        if (this.arrset.indexOf(control.value) >= 0)
+        {
+          alert(" Register is Successfully!...");
+        }
+        alert("Register Successfully!...");
+      }
+
     OnClickAdd1()
     {
      if( this.arremployee.length ==0)
@@ -572,13 +640,24 @@ SkillSetDetail()
     }
 
   //start here
-  onAddDetail(): void
-        {
-          this.arrskill.push(this.skillForm.value);
-          console.log('SkillDetail',this.arrskill);
-          // console.log('Qualification Details',this.signupForm.get('qualification_details').controls['qualification'].value);
-        }
+  onEmployee6(): void {
 
+    this.counter2=0;
+    this.res2="";
+      //this.skillDetails.push(this.skillDetailsFrom.get('skillset_details').value);
+        alert("Data Added Successfully!...");
+       for(var i=0;i<=(this.skillForm.get('skill_details').value).length-1;i++)
+       {
+           this.data.addskill_tbl(this.skillForm.get('skill_details').get([this.counter2]).value).subscribe((x)=>
+           {
+            // console.log("success");
+             this.arrskill.push(this.skillForm.get('skill_details').value);
+             this.counter2++;
+           });
+         //  this.res3=this.skillDetailsFrom.get('skillset_details').get([this.counter2]).value;
+          // console.log('Skill Set Data',this.counter2,this.res3);
+       }
+  }
     get skillSetDetailArray()
     {
       return<FormArray>this.skillForm.get('skill_details');

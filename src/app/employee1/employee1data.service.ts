@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import{Employee1, Employee2, Employee3,Employee4,Employee5,Employee6} from "./employee1";
+import{Employee1, Employee2,Employee4,Employee5,Employee6} from "./employee1";
 
 @Injectable({
   providedIn: 'root'
@@ -57,7 +57,7 @@ return this._http.put(this.url1+items.id,body, {headers:head} );
     addpermanent_add_tbl(item: Employee2) {
       let head = new HttpHeaders().set('Content-type','application/json');
     let body = JSON.stringify(item);
-    return this._http.post<Employee2>(this.url1, body, { headers: head });
+    return this._http.post<Employee2>(this.url2, body, { headers: head });
   }
    deletepermanent_add_tbl(id1) {
      let head = new HttpHeaders().set('Content-Type', 'application/json');
@@ -69,28 +69,28 @@ return this._http.put(this.url1+items.id,body, {headers:head} );
      return this._http.put(this.url2+items.id1,body, {headers:head} );
  }
 
- getAllTasks2() {
-  return this._http.get(this.url3);
- }
- getPresentById(Id2){
-   return this._http.get(this.url3+ Id2);
- }
- addpresent_add_tbl(item: Employee3){
- let head = new HttpHeaders().set('Content-type','application/json');
- let body = JSON.stringify(item);
- return this._http.post<Employee1>(this.url3, body, {headers: head});
- }
+//  getAllTasks2() {
+//   return this._http.get(this.url3);
+//  }
+//  getPresentById(Id2){
+//    return this._http.get(this.url3+ Id2);
+//  }
+//  addpresent_add_tbl(item: Employee3){
+//  let head = new HttpHeaders().set('Content-type','application/json');
+//  let body = JSON.stringify(item);
+//  return this._http.post<Employee1>(this.url3, body, {headers: head});
+//  }
 
- deletepresent_add_tbl(id2) {
-   let head = new HttpHeaders().set('Content-Type', 'application/json');
-   return this._http.delete(this.url3 + id2,{ headers:head });
- }
- editpresent_add_tbl(items:Employee3){
-   let head = new HttpHeaders().set('Content-type','application/json');
-   let body =JSON.stringify(items);
-   return this._http.put(this.url3 +items.id2, body, {headers:head} );
+//  deletepresent_add_tbl(id2) {
+//    let head = new HttpHeaders().set('Content-Type', 'application/json');
+//    return this._http.delete(this.url3 + id2,{ headers:head });
+//  }
+//  editpresent_add_tbl(items:Employee3){
+//    let head = new HttpHeaders().set('Content-type','application/json');
+//    let body =JSON.stringify(items);
+//    return this._http.put(this.url3 +items.id2, body, {headers:head} );
 
- }
+//  }
  getAllTasks3() {
    return this._http.get(this.url4);
  }

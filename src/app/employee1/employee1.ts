@@ -57,12 +57,7 @@ public  address_permanent: string,
     public  phone2: number,
     public  fax1: number,
     public  personnal_email_id: string,
-    ) {}
-  }
-
-
-  export class Employee3 {
-    constructor(
+    public address:string,
       public id2: number,
     public address_present:  string,
     public city1:  string,

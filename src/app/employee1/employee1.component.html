@@ -384,7 +384,7 @@ Min 12 length
                   <h5 id="required">(*)required fields are mandatory</h5>
      <div class="form-group">
     <div class="btn-toolbar">
-    <button class="btn btn-primary" (click)="onEmpPre2()">Previous</button>
+   <!--  <button class="btn btn-primary" (click)="onEmpPre2()">Previous</button> -->
     <button class="btn btn-primary" type="submit">save</button>
     <button class="btn btn-success" (click)="onEmployeee()"style="width: 15%">Continue </button>
                        <!-- [disabled]="employeeForm.invalid -->
@@ -515,10 +515,11 @@ Min 12 length
          <h5>&nbsp;copy Same to Present Address</h5>
             </label>
                </div>
+
                       <div class="form-group">
                         <label>Address_Present:<span class="lblError">*</span></label>
                         <div class="controls">
-                          <input formControlName="address_present" placeholder="addressPresent" type="text" class="form-control" value={{Caddress_permanent}}>
+                          <input formControlName="address_present" placeholder="addressPresent" type="text" class="form-control" value={{address_present}}>
                           <p class="lblError"
                             *ngIf="employeeForm1.get('address_present').hasError('required') && !employeeForm1.get('address_present').pristine">present address
                              is Required. </p>
@@ -531,7 +532,7 @@ Min 12 length
                        <div class="form-group">
                         <label>City:<span class="lblError">*</span></label>
                         <div class="controls">
-                          <input formControlName="city1" placeholder="City" type="text" class="form-control" value={{CCity}}>
+                          <input formControlName="city1" placeholder="City" type="text" class="form-control" value={{city1}}>
                           <p class="lblError"
                             *ngIf="employeeForm1.get('city1').hasError('required') && !employeeForm1.get('city1').pristine">city
                              is Required. </p>
@@ -544,7 +545,7 @@ Min 12 length
                       <div class="form-group">
                         <label>Country:</label>
                         <div class="controls">
-                          <input formControlName="country1"  class="form-control" >
+                          <input formControlName="country1"  class="form-control" value={{country1}} >
                           <select >
                             <option value = "Select"> Select
                             </option>
@@ -562,7 +563,7 @@ Min 12 length
                                <div class="form-group">
                                 <label>State:</label>
                                 <div class="controls">
-                                  <input formControlName="state1"  class="form-control" >
+                                  <input formControlName="state1"  class="form-control" value={{state1}} >
                                   <select>
                                     <option value = "Select"> Select
                                     </option>
@@ -580,7 +581,7 @@ Min 12 length
                                        <div class="form-group">
                                         <label>District:</label>
                                         <div class="controls">
-                                          <input formControlName="district"  class="form-control" >
+                                          <input formControlName="district1"  class="form-control" value={{district1}}>
                                           <select>
                                             <option value = "Select"> Select
                                             </option>
@@ -598,31 +599,31 @@ Min 12 length
                                   <div class="form-group">
                                     <label>Pin:</label>
                                      <div class="controls">
-                                    <input formControlName="pin1"  placeholder="Enter pin" type="number" class="form-control">
+                                    <input formControlName="pin1"  placeholder="Enter pin" type="number" class="form-control" value={{pin1}}>
                                         </div>
                                         </div>
                         <div class="form-group">
                              <label>Phone1:</label>
                                 <div class="controls">
-                                    <input  formControlName="phone3" placeholder="Enter phone1" type="number"  class="form-control">
+                                    <input  formControlName="phone3" placeholder="Enter phone1" type="number"  class="form-control" value={{phone3}}>
                                          </div>
                                             </div>
                      <div class="form-group">
                          <label>Phone2:</label>
                               <div class="controls">
-                                 <input  formControlName="phone4"  placeholder="Enter phone2" type="number" class="form-control">
+                                 <input  formControlName="phone4"  placeholder="Enter phone2" type="number" class="form-control" value={{phone4}}>
                                      </div>
                                         </div>
                         <div class="form-group">
                            <label>Fax/mobile:</label>
                                <div class="controls">
-                                   <input formControlName="fax2" placeholder="Enter fax/mob no." type="number"  class="form-control">
+                                   <input formControlName="fax2" placeholder="Enter fax/mob no." type="number"  class="form-control" value={{fax2}}>
                                        </div>
                                           </div>
                        <div class="form-group">
                           <label>Personal EmailID:</label>
                              <div class="controls">
-                                <input  formControlName="personal_email_id" placeholder="Enter email" type="text" class="form-control">
+                                <input  formControlName="personal_email_id" placeholder="Enter email" type="text" class="form-control" value={{personal_email_id}}>
                                    </div>
                                       </div>
                   <h5 id="required">(*)required fields are mandatory</h5>
@@ -630,8 +631,9 @@ Min 12 length
 
                 <div class="form-group">
                    <div class="btn-toolbar">
-                  <button class="btn btn-primary" (click)="onEmpPre()">Previous</button>
-                  <button class="btn btn-success"  type="submit" style="width: 15%">
+                    <button class="btn btn-primary" (click)="onEmpPre()">Previous</button>
+                    <button class="btn btn-primary" type="submit"  >save</button>
+                  <button class="btn btn-success" (click)="onEmployee11()" style="width: 15%">
                       Next </button>
                                       <!--[disabled]="employeeForm.invalid -->
                          </div>
@@ -694,8 +696,8 @@ Min 12 length
       <div><br></div><p><span class="lblError">* Indicates the Field are Mandatory</span></p><div><br></div>
 
 
-      <button class="btn btn-primary" (click)="onEmpPre4()">Previous</button>&nbsp;&nbsp;
-      <button type="submit"  class="btn btn-primary" [disabled]="signupForm.invalid" (click)="onAddDetail2()" (click)="onSaveDetail($event)">Save</button>&nbsp;&nbsp;
+      <button class="btn btn-primary" (click)="onEmpPre1()">Previous</button>&nbsp;&nbsp;
+      <button type="submit"  class="btn btn-primary" [disabled]="signupForm.invalid" >Save</button>&nbsp;&nbsp;
       <button class="btn btn-primary" (click)="next()" [disabled]="signupForm.invalid " >Continue</button>
       <div><br></div>
 </form>
@@ -762,8 +764,8 @@ Min 12 length
       </div>
     </div>
     <div class="form-group col-md-12">
-      <button class="btn btn-primary" (click)="onEmpPre55()" >Previous</button>&nbsp;&nbsp;
-    <!--  <button type="button"  class="btn btn-primary" [disabled]="signupForm1.invalid" (click)="onSaveDetail($event)">Save</button>&nbsp;&nbsp;-->
+      <button class="btn btn-primary" (click)="onEmpPre2()">Previous</button>&nbsp;&nbsp;
+     <button type="submit"  class="btn btn-primary" [disabled]="signupForm1.invalid">Save</button>&nbsp;&nbsp;-->
       <button class="btn btn-primary" (click)="nextt()" [disabled]="signupForm1.invalid" >Continue</button>
     </div>
       </form>
@@ -826,14 +828,17 @@ Min 12 length
 
         </div>
 
-        <button class="btn btn-primary" (click)="onEmpPre6()">Previous</button>&nbsp;&nbsp;
-        <button type="submit"  class="btn btn-primary" [disabled]="skillForm.invalid" (click)="onAddDetail()" (click)="onSaveDetail($event)">Save</button>&nbsp;&nbsp;
-        <!-- <button class="btn btn-primary" [disabled]="employeeForm.invalid" type="submit">Save</button> -->
+        <p><span class="lblError">* Indicates the Field are Mandatory</span></p>
+        <div class="form-group col-md-12">
+        <button class="btn btn-primary" (click)="onEmpPre3()">Previous</button>&nbsp;&nbsp;
+        <button type="submit"  class="btn btn-primary" [disabled]="skillForm.invalid" >Save</button>&nbsp;&nbsp;
+      </div>
+    </form>
+    &nbsp;&nbsp;&nbsp;  <button class="btn btn-primary" routerLink="/skillset" >Submit</button>
         <!-- [disabled]="skillForm.invalid" -->
-  </form>
-            <div><br></div><p><span class="lblError">* Indicates the Field are Mandatory</span></p><div><br></div>
 
-            <div><br></div></div>
+        <div>&nbsp;
+            </div>&nbsp;</div>
   </div>
 
 
