@@ -145,28 +145,28 @@ export class Employee1Component implements OnInit {
       }
 
       this.employeeForm1=new FormGroup({
-     address_permanent:new FormControl(null,[Validators.required,Validators.minLength(5),]),
-      City:new FormControl(null,[Validators.required,Validators.minLength(4),]),
-      Country:new FormControl(),
-      State:new FormControl(),
-      District:new FormControl(),
-      Pin:new FormControl(),
-      Phone1:new FormControl(),
-      Phone2:new FormControl(),
-      fax:new FormControl(),
-      personalEmailId:new FormControl(),
+      address_permanent:new FormControl(null,[Validators.required,Validators.minLength(5),]),
+      city :new FormControl(null,[Validators.required,Validators.minLength(4),]),
+      country :new FormControl(),
+      state:new FormControl(),
+      district :new FormControl(),
+      pin :new FormControl(),
+      phone1:new FormControl(),
+      phone2:new FormControl(),
+      fax1:new FormControl(),
+      personnal_email_id:new FormControl(),
 
       address:new FormControl(),
       address_present:new FormControl(null,[Validators.required,Validators.minLength(5),]),
-      pCity:new FormControl(null,[Validators.required,Validators.minLength(4),]),
-      pCountry:new FormControl(),
-      pState:new FormControl(),
-      pDistrict:new FormControl(),
-      pPin:new FormControl(),
-      pPhone1:new FormControl(),
-      pPhone2:new FormControl(),
-      pfax:new FormControl(),
-      ppersonalEmailId:new FormControl(),
+      city1 :new FormControl(null,[Validators.required,Validators.minLength(4),]),
+      country1:new FormControl(),
+      state1:new FormControl(),
+      district1:new FormControl(),
+      pin1:new FormControl(),
+      phone3:new FormControl(),
+      phone4:new FormControl(),
+      fax2:new FormControl(),
+      personal_email_id:new FormControl(),
       });
 
       this.employeeForm2=new FormGroup({
@@ -197,11 +197,11 @@ onEmployee()
    setAddress(val:boolean){
       if(val){
         this.Caddress_permanent=this.employeeForm1.get('address_permanent').value;
-        this.CCity=this.employeeForm1.get('City').value;
-        this.CCountry=this.employeeForm1.get('Country').value;
-        this.CState=this.employeeForm1.get('State').value;
-        this.CDistrict=this.employeeForm1.get('District').value;
-        this.CPin=this.employeeForm1.get('Pin').value;
+        this.CCity=this.employeeForm1.get('city').value;
+        this.CCountry=this.employeeForm1.get('country').value;
+        this.CState=this.employeeForm1.get('state').value;
+        this.CDistrict=this.employeeForm1.get('district').value;
+        this.CPin=this.employeeForm1.get('pin').value;
       }
       else{
         this.Caddress_permanent=null;
@@ -462,21 +462,21 @@ Duplicate3(quali): boolean {
     return this.ang.group
     ({
       fromto: new FormGroup({
-        fromDate: new  FormControl( null, [Validators.required ]),
-        toDate: new  FormControl( null, [Validators.required ]),
-      },  [this.fromToDate('fromDate', 'toDate').bind(this)]
+        from_date: new  FormControl( null, [Validators.required ]),
+        to_date: new  FormControl( null, [Validators.required ]),
+      },  [this.fromToDate('from_date', 'to_date').bind(this)]
       ),
       company: new  FormControl(null, [Validators.required]),
       designation: new  FormControl(null, [Validators.required]),
       relevant: new  FormControl(null, [Validators.required]),
-      nrelevant: new  FormControl(null, [Validators.required]),
+      non_relevant: new  FormControl(null, [Validators.required]),
     });
   }
-  fromToDate(fromDate: string, toDate: string)//2020 -->fromdate 2022-->todate
+  fromToDate(from_date: string, to_date: string)//2020 -->fromdate 2022-->todate
   {
     return (group: FormGroup): {[key: string]: any} => {
-      let f = group.controls[fromDate];
-      let t = group.controls[toDate];
+      let f = group.controls[from_date];
+      let t = group.controls[to_date];
       if (f.value > t.value) {
         return {
           dates: "From Date should be less than to Date"
@@ -489,18 +489,18 @@ Duplicate3(quali): boolean {
 getang1(form): Array<any> {
   return form.controls.employment_details.controls;
 }
-Duplicate2(fromDate): boolean {
+Duplicate2(from_date): boolean {
   let myArray = this.getang1(this.signupForm1);
-  let test = myArray.filter(data => data.controls.fromto.get('toDate').value >= fromDate && fromDate != null)
+  let test = myArray.filter(data => data.controls.fromto.get('to_date').value >= from_date && from_date != null)
   if (test.length > 1) {
     return true;
   } else {
     return false;
   }
 }
-Duplicate1(fromDate): boolean {
+Duplicate1(from_date): boolean {
   let myArray = this.getang1(this.signupForm1);
-  let test = myArray.filter(data => data.controls.fromto.get('fromDate').value == fromDate && fromDate != null)
+  let test = myArray.filter(data => data.controls.fromto.get('from_date').value == from_date && from_date != null)
   if (test.length > 1) {
     return true;
   } else {
@@ -557,12 +557,12 @@ SkillSetDetail()
     {
         return this.ang.group
         ({
-          skillCategory: new FormControl(null,[Validators.required]),
+          skill_category: new FormControl(null,[Validators.required]),
           skill:new FormControl (null,[Validators.required]),
-          skillLevel: new FormControl (null,[Validators.required]),
-          isCurrent: new FormControl (null,[Validators.required]),
-          Experience: new FormControl (null,[Validators.required]),
-          Remarks: new FormControl (null,[Validators.required]),
+          skill_level: new FormControl (null,[Validators.required]),
+          is_current: new FormControl (null,[Validators.required]),
+          experience: new FormControl (null,[Validators.required]),
+          remarks: new FormControl (null,[Validators.required]),
         });
 
     }
