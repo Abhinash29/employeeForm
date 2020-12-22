@@ -13,6 +13,7 @@ import {ProductDisplayComponent } from './product-display/product-display.compon
 import {AddproductComponent } from './product-display/addproduct/addproduct.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { UserguardService } from "./userguard.service";
+import { AngularMaterialDemoComponent } from "./angular-material-demo/angular-material-demo.component";
 
 import{HeaderComponent} from "./header/header.component";
 const arr: Routes=[
@@ -28,6 +29,7 @@ const arr: Routes=[
    {path: 'addtask',component: AddtaskComponent },
    {path: 'product',component: ProductDisplayComponent },
    {path: 'addproduct',component: AddproductComponent },
+   {path:'ngdemo',component:AngularMaterialDemoComponent},
    {
      path: 'user',
      canActivate:[UserguardService],

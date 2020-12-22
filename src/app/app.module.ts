@@ -25,6 +25,7 @@ import { Employee1Module } from "./employee1/employee1.module";
 import {SharedModule  } from "./shared.module";
 import {  HttpinterceptorestokenService} from "./httpinterceptorestoken.service";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from "@angular/material/slider";
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +47,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     EditemployeeComponent,
     EditproductComponent,
   ],
-  imports: [ BrowserModule, FormsModule,ReactiveFormsModule,HttpClientModule,arrRouting,Employee1Module,SharedModule, BrowserAnimationsModule],
+  imports: [ BrowserModule, FormsModule,ReactiveFormsModule,HttpClientModule,arrRouting,Employee1Module,SharedModule, BrowserAnimationsModule,MatSliderModule,],
   providers: [{provide:HTTP_INTERCEPTORS,useClass:HttpinterceptorestokenService,multi:true,},],
   bootstrap: [AppComponent],
 })
