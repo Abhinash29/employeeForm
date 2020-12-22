@@ -3,7 +3,7 @@ import { Todo } from './todo';
 import { Employee } from './employee';
 import { Product } from './product';
 import { TaskDataService } from './taskdata.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -42,19 +42,12 @@ export class TodosComponent implements OnInit {
     new Product(2, 'Micromax Dongle', 'unused', 1000),
     new Product(3, 'Dell Laptop', '1 year old', 18000), */
   ];
-  constructor(private _data: TaskDataService,private _router:Router) {}
+  constructor(private _data: TaskDataService,private _router:Router,private _acRoute:ActivatedRoute) {}
 
   ngOnInit(): void {
-    this._data.getAllTasks().subscribe((data: Todo[]) => {
-      this.arrTodos = data;
-    });
-    this._data.getAllUsers().subscribe((data: Employee[]) => {
-      this.arrEmployees = data;
-    });
-    this._data.getAllProduct().subscribe((data: Product[]) => {
-      this.arrProduct = data;
-    });
+    this.arrTodos=this._acRoute.snapshot.data['xyz'];
   }
+
   onEditTask(item: Todo) {
     this._router.navigate(['/todos/edit', item.task_id]);
   }

@@ -9,8 +9,8 @@ export class Employee1dataService {
   url1:string='http://localhost:3000/basic_tbl/';
   url2:string='http://localhost:3000/permanent_add_tbl/';
   url3:string='http://localhost:3000/present_add_tbl/';
-  url4:string='http://localhost:3000/previous_emp/';
-  url5:string='http://localhost:3000/qualification_tbl/';
+  url4:string='http://localhost:3000/qualification_tbl/';
+  url5:string='http://localhost:3000/previous_emp/';
   url6:string='http://localhost:3000/skill_tbl/';
 
  constructor(private _http:HttpClient) { }
@@ -91,48 +91,52 @@ return this._http.put(this.url1+items.id,body, {headers:head} );
 //    return this._http.put(this.url3 +items.id2, body, {headers:head} );
 
 //  }
- getAllTasks3() {
+
+ getAllTasks4() {
    return this._http.get(this.url4);
  }
- getPreviousEmpById(Id3){
-   return this._http.get(this.url4+ Id3);
- }
- addprevious_emp(item: Employee4){
- let head = new HttpHeaders().set('Content-type','application/json');
- let body = JSON.stringify(item);
- return this._http.post<Employee4>(this.url4, body, {headers: head});
- }
-
- deleteprevious_emp(id3) {
-   let head = new HttpHeaders().set('Content-Type', 'application/json');
-   return this._http.delete(this.url4 + id3,{ headers:head });
- }
-  editprevious_emp(items:Employee4){
-   let head = new HttpHeaders().set('Content-type','application/json');
-   let body =JSON.stringify(items);
-   return this._http.put(this.url4 +items.id3, body, {headers:head} );
- }
- getAllTasks4() {
-   return this._http.get(this.url5);
- }
  getQualificationById(id4){
-   return this._http.get(this.url5+ id4);
+   return this._http.get(this.url4+ id4);
  }
  addqualification_tbl(item: Employee5){
  let head = new HttpHeaders().set('Content-type','application/json');
  let body = JSON.stringify(item);
- return this._http.post<Employee5>(this.url5, body, {headers: head});
+ return this._http.post<Employee5>(this.url4, body, {headers: head});
  }
 
  deletequalification_tbl(id4) {
    let head = new HttpHeaders().set('Content-Type', 'application/json');
-   return this._http.delete(this.url5 + id4,{ headers:head });
+   return this._http.delete(this.url4 + id4,{ headers:head });
  }
- editqualification_tbl(items:Employee5){
+ editqualification_tbl(items:Employee4){
    let head = new HttpHeaders().set('Content-type','application/json');
    let body =JSON.stringify(items);
-   return this._http.put(this.url5 +items.id4, body, {headers:head} );
+   return this._http.put(this.url4 +items.id4, body, {headers:head} );
  }
+
+
+ getAllTasks3() {
+  return this._http.get(this.url5);
+}
+getPreviousEmpById(Id3){
+  return this._http.get(this.url5+ Id3);
+}
+addprevious_emp(Item: Employee4){
+let head = new HttpHeaders().set('Content-type','application/json');
+let body = JSON.stringify(Item);
+return this._http.post<Employee4>(this.url5, body, {headers: head});
+}
+
+deleteprevious_emp(id3) {
+  let head = new HttpHeaders().set('Content-Type', 'application/json');
+  return this._http.delete(this.url5 + id3,{ headers:head });
+}
+ editprevious_emp(items:Employee5){
+  let head = new HttpHeaders().set('Content-type','application/json');
+  let body =JSON.stringify(items);
+  return this._http.put(this.url5 +items.id3, body, {headers:head} );
+}
+
 
  getAllTasks5() {
    return this._http.get(this.url6);

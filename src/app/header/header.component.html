@@ -24,13 +24,18 @@
         <li routerLinkActive="active"><a routerLink="/empadd">Emp Add</a></li>
        <!-- <li routerLinkActive="active"><a routerLink="/login">Login</a></li> -->
         <li routerLinkActive="active"><a routerLink="/signup">Sign Up</a></li>
-        <li routerLinkActive="active"><a routerLink="/employee1">Employee1</a></li>
         <li routerLinkActive="active"><a routerLink="/user">User</a></li>
         <li routerLinkActive="active"><a routerLink="/user/add">Add User</a></li>
         <li routerLinkActive="active"><a routerLink="/task">Task</a></li>
         <li routerLinkActive="active"><a routerLink="/addtask">Add Task</a></li>
         <li routerLinkActive="active"><a routerLink="/product">Product</a></li>
         <li routerLinkActive="active"><a routerLink="/addproduct">Add Product</a></li>
+        <li routerLinkActive="active"><a routerLink="/Employee">Employee</a></li>
+        <li routerLinkActive="active"><a *ngIf="!isLoggedIn" (click)="onLoginClick()">Login</a></li>
+        <li routerLinkActive="active"><a *ngIf="isLoggedIn"  (click)="onLogOutClick()">LogOut</a></li>
+
+
+
 
       </ul>
     </div>

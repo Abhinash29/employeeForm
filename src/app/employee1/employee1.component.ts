@@ -560,13 +560,13 @@ onEmployee5(): void
     for(var i=0;i<=(this.signupForm1.get('employment_details').value).length-1;i++)
       {
         {
-          this.data.addskill_tbl(this.signupForm1.get('employment_details').get([this.counter1]).value).subscribe((x)=>
+          this.data.addprevious_emp(this.signupForm1.get('employment_details').get([this.counter1]).value).subscribe((x)=>
           {
            // console.log("success");
             this.arremp.push(this.signupForm1.get('employment_details').value);
           }
           );}
-       // this.res1=this.employmentForm.get('employment_details').get([this.counter1]).value;
+        this.res1=this.signupForm1.get('employment_details').get([this.counter1]).value;
         this.counter1++;
         alert("Data Added Successfully!...");
         //console.log('Employment Details',this.counter1,this.res1);

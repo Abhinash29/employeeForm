@@ -71,18 +71,8 @@ public  address_permanent: string,
     public personal_email_id:  string,
     ) {}
   }
+
   export class Employee4 {
-    constructor(
-      public id3: number,
-    public from_date:  Date,
-    public to_date:  Date,
-    public company:  string,
-    public designation:  string,
-    public  relevant:  string,
-    public  non_relevant:  string,
-    ) {}
-  }
-  export class Employee5 {
     constructor(
       public id4: number,
     public qualification:  string,
@@ -90,6 +80,17 @@ public  address_permanent: string,
     public passing_year:  number,
     public score:  string,
     public qualification_area:  string,
+    ) {}
+  }
+  export class Employee5 {
+    constructor(
+      public id3: number,
+    public from_date:  string,
+    public to_date:  string,
+    public company:  string,
+    public designation:  string,
+    public  relevant:  string,
+    public  non_relevant:  string,
     ) {}
   }
 
